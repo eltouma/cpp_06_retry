@@ -6,7 +6,7 @@
 /*   By: eltouma <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/20 16:16:13 by eltouma           #+#    #+#             */
-/*   Updated: 2024/11/24 22:34:15 by eltouma          ###   ########.fr       */
+/*   Updated: 2024/11/24 22:50:34 by eltouma          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -135,26 +135,29 @@ void	handleInt(std::string s)
 	std::cout.unsetf(std::ios::fixed);
 }
 
+void	displayDF(std::string s, std::string name, double val)
+{
+	std::cout << std::fixed << std::showpoint;
+	if (val < -FLT_MAX || val > FLT_MAX)
+		std::cout << s << ": out of range" << std::endl;
+	else
+		std::cout << s << ": " << static_cast<float>(val) << "f" << std::endl;
+	std::cout << name << ": " << val << std::endl;
+	std::cout.unsetf(std::ios::fixed | std::ios::showpoint);
+}
+
 void	handleDouble(std::string s)
 {
-//	long	nb;
-	float	flt;
+	//float	flt;
 	double	dbl;
 	char	*endptr;
 
 	dbl = strtod(s.c_str(), &endptr);
 	displayChar(dbl);
 	displayInt(dbl);
-/*
-	if (dbl < INT_MIN || dbl > INT_MAX)
-		std::cout << "int: out of range" << std::endl;
-	else
-	{
-		nb = static_cast<int>(dbl);
-		std::cout << "int: " << nb << std::endl;
-	}
-*/
 	std::cout << std::fixed << std::showpoint;
+	displayDF("float", "double" , dbl);
+/*
 	if (dbl < -FLT_MAX || dbl > FLT_MAX)
 		std::cout << "float: out of range" << std::endl;
 	else
@@ -164,39 +167,34 @@ void	handleDouble(std::string s)
 	}
 	std::cout << "double: " << dbl << std::endl;
 	std::cout.unsetf(std::ios::fixed | std::ios::showpoint);
+*/
 }
 
 void	handleFloat(std::string s)
 {
-//	long	nb;
 	float	flt;
-	double	dbl;
+//	double	dbl;
 	char	*endptr;
-/*
-	float	min;
-	float	max;
 
-	min = static_cast<double>(INT_MIN);
-	max = static_cast<double>(INT_MAX);
-*/
 	flt = strtof(s.c_str(), &endptr);
 	displayChar(flt);
 	displayInt(flt);
+	displayDF("double", "float", flt);
 /*
-	if (flt < min || flt > max)
-		std::cout << "int: out of range" << std::endl;
+	std::cout << std::fixed << std::showpoint;
+//	flt = static_cast<float>(flt);
+//	if (flt < -FLT_MAX || flt > FLT_MAX)
+	std::cout << "float: " << flt << "f" << std::endl;
+	if (flt < -FLT_MAX || flt > FLT_MAX)
+		std::cout << "double: out of range" << std::endl;
 	else
 	{
-		nb = static_cast<int>(flt);
-		std::cout << "int: " << nb << std::endl;
+		dbl = static_cast<double>(flt);
+		std::cout << "double: " << dbl << std::endl;
 	}
-*/
-	std::cout << std::fixed << std::showpoint;
-	flt = static_cast<float>(flt);
-	std::cout << "float: " << flt << "f" << std::endl;
-	dbl = static_cast<double>(flt);
-	std::cout << "double: " << dbl << std::endl;
+	//std::cout << "double: " << dbl << std::endl;
 	std::cout.unsetf(std::ios::fixed | std::ios::showpoint);
+*/
 }
 
 void	ScalarConverter::convert(std::string s)
