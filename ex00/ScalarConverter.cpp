@@ -6,7 +6,7 @@
 /*   By: eltouma <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/20 16:16:13 by eltouma           #+#    #+#             */
-/*   Updated: 2024/11/24 23:04:17 by eltouma          ###   ########.fr       */
+/*   Updated: 2024/11/24 23:10:52 by eltouma          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,19 +99,16 @@ void	ScalarConverter::convert(std::string s)
 		return ;
 	if (isInt(s))
 	{
-		std::cout << "c'est un int\n\n";
 		handleInt(s);
 		return ;
 	}
 	if (isDouble(s))
 	{
-		std::cout << "c'est un double\n\n";
 		handleDouble(s);
 		return ;
 	}
 	if (isFloat(s))
 	{
-		std::cout << "c'est un float\n\n";
 		handleFloat(s);
 		return ;
 	}
