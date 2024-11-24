@@ -6,7 +6,7 @@
 /*   By: eltouma <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/20 16:16:13 by eltouma           #+#    #+#             */
-/*   Updated: 2024/11/24 20:53:54 by eltouma          ###   ########.fr       */
+/*   Updated: 2024/11/24 21:20:36 by eltouma          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,12 +70,40 @@ float	getFloat(std::string s)
 	return (nb);
 }
 
+void	handleChar(std::string s)
+{
+	char	c;
+	long	nb;
+	float	flt;
+	double	dbl;
+
+	c = s.c_str()[0];
+	std::cout << "char: " << c << std::endl;
+	nb = static_cast<int>(c);
+	std::cout << "int: " << nb << std::endl;
+	flt = static_cast<float>(c);
+	std::cout << std::fixed << std::setprecision(1) << "float: " << flt << "f";
+	dbl = static_cast<double>(c);
+	std::cout << "\ndouble: " << dbl << std::endl;
+	std::cout.unsetf(std::ios::fixed);
+}
+
+int	getChar(std::string s)
+{
+	static size_t	size = s.length();
+
+	if (size == 1 && !isdigit(s[0]) && isprint(s[0]))
+		return (handleChar(s), 1);
+	return (0);
+}
 
 void	ScalarConverter::convert(std::string s)
 {
 	std::cout << "convert " << s << std::endl;
 	std:: cout << std::endl;
 	if (isSpecialDouble(s))
+		return ;
+	if (getChar(s))
 		return ;
 	if (getInt(s))
 	{
