@@ -6,7 +6,7 @@
 /*   By: eltouma <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/20 16:16:13 by eltouma           #+#    #+#             */
-/*   Updated: 2024/11/24 22:26:52 by eltouma          ###   ########.fr       */
+/*   Updated: 2024/11/24 22:34:15 by eltouma          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,9 +105,21 @@ void	displayChar(double val)
 		std::cout << "char: " << static_cast<char>(val) << std::endl;
 }
 
+void	displayInt(double val)
+{
+	double	min;
+	double	max;
+
+	min = static_cast<double>(INT_MIN);
+	max = static_cast<double>(INT_MAX);
+	if (val < min || val > max)
+		std::cout << "int: out of range" << std::endl;
+	else
+		std::cout << "int: " << static_cast<int>(val) << std::endl;
+}
+
 void	handleInt(std::string s)
 {
-	// char c;
 	long	nb;
 	float	f;
 	double	d;
@@ -115,15 +127,6 @@ void	handleInt(std::string s)
 
 	nb = strtol(s.c_str(), &endptr, 10);
 	displayChar(nb);
-/*
-	if (nb < 32 || nb > 126)
-		std::cout << "char: non displayable" << std::endl;
-	else
-	{
-		c = static_cast<char>(nb);	
-		std::cout << "char: " << c << std::endl;
-	}
-*/
 	std::cout << "int: " << nb << std::endl;
 	f = static_cast<float>(nb);
 	std::cout << std::fixed << std::setprecision(1) << "float: " << f << "f";
@@ -134,23 +137,15 @@ void	handleInt(std::string s)
 
 void	handleDouble(std::string s)
 {
-//	char	c;
-	long	nb;
+//	long	nb;
 	float	flt;
 	double	dbl;
 	char	*endptr;
 
 	dbl = strtod(s.c_str(), &endptr);
 	displayChar(dbl);
+	displayInt(dbl);
 /*
-	if (dbl < 32 || dbl > 126)
-		std::cout << "char: non displayable" << std::endl;
-	else
-	{
-		c = static_cast<char>(dbl);	
-		std::cout << "char: " << c << std::endl;
-	}
-*/
 	if (dbl < INT_MIN || dbl > INT_MAX)
 		std::cout << "int: out of range" << std::endl;
 	else
@@ -158,6 +153,7 @@ void	handleDouble(std::string s)
 		nb = static_cast<int>(dbl);
 		std::cout << "int: " << nb << std::endl;
 	}
+*/
 	std::cout << std::fixed << std::showpoint;
 	if (dbl < -FLT_MAX || dbl > FLT_MAX)
 		std::cout << "float: out of range" << std::endl;
@@ -172,27 +168,21 @@ void	handleDouble(std::string s)
 
 void	handleFloat(std::string s)
 {
-//	char c;
-	long	nb;
+//	long	nb;
 	float	flt;
 	double	dbl;
 	char	*endptr;
+/*
 	float	min;
 	float	max;
 
-	min = static_cast<float>(INT_MIN);
-	max = static_cast<float>(INT_MAX);
+	min = static_cast<double>(INT_MIN);
+	max = static_cast<double>(INT_MAX);
+*/
 	flt = strtof(s.c_str(), &endptr);
 	displayChar(flt);
+	displayInt(flt);
 /*
-	if (flt < 32 || flt > 126)
-		std::cout << "char: non displayable" << std::endl;
-	else
-	{
-		c = static_cast<char>(flt);	
-		std::cout << "char: " << c << std::endl;
-	}
-*/
 	if (flt < min || flt > max)
 		std::cout << "int: out of range" << std::endl;
 	else
@@ -200,6 +190,7 @@ void	handleFloat(std::string s)
 		nb = static_cast<int>(flt);
 		std::cout << "int: " << nb << std::endl;
 	}
+*/
 	std::cout << std::fixed << std::showpoint;
 	flt = static_cast<float>(flt);
 	std::cout << "float: " << flt << "f" << std::endl;
