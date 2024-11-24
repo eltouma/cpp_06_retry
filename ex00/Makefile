@@ -6,7 +6,8 @@ MAKEFLAGS += --no-print-directory
 GREEN := \e[32m
 RESET :=\e[0m
 
-SRCS = ScalarConverter.cpp ScalarConverterParsing.cpp main.cpp
+SRCS = ScalarConverter.cpp ScalarConverterParsing.cpp \
+	ScalarConverterChecker.cpp ScalarConverterDisplay.cpp main.cpp
 
 OBJS_PATH = objs/
 

@@ -6,7 +6,7 @@
 /*   By: eltouma <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/20 16:16:24 by eltouma           #+#    #+#             */
-/*   Updated: 2024/11/24 20:45:21 by eltouma          ###   ########.fr       */
+/*   Updated: 2024/11/24 23:02:43 by eltouma          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,6 @@
 #include <cstdlib>
 #include <limits.h>
 #include <cfloat>
-
-# define MIN_INT -2147483648
-# define MAX_INT 2147483647
-# define MIN_DBL -9223372036854775807
-# define MAX_DBL 9223372036854775807
 
 class	ScalarConverter
 {
@@ -35,6 +30,11 @@ public:
 
 int	isSpecialDouble(std::string s);
 int	isSpecialFloat(std::string s);
-int	getInt(std::string s);
-float	getFloat(std::string s);
-double	getDouble(std::string s);
+int	getChar(std::string s);
+int	isInt(std::string s);
+float	isFloat(std::string s);
+double	isDouble(std::string s);
+void	handleChar(std::string s);
+void	displayChar(double val);
+void	displayInt(double val);
+void	displayOtherTypes(std::string s, std::string name, double val);
