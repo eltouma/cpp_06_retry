@@ -91,8 +91,6 @@ void	handleFloat(std::string s)
 
 void	ScalarConverter::convert(std::string s)
 {
-	std::cout << "convert " << s << std::endl;
-	std:: cout << std::endl;
 	if (isSpecialDouble(s))
 		return ;
 	if (getChar(s))

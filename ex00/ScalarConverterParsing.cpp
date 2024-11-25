@@ -89,7 +89,7 @@ int	isSpecialFloat(std::string s)
 		std::cout << "char: impossible" << std::endl;
 		std::cout << "int: impossible" << std::endl;
 		if (s == pInff)
-			std::cout << "float: " << s.erase(0, 1) << 'f' << std::endl;
+			std::cout << "float: " << s.erase(0, 1) << std::endl;
 		else
 			std::cout << "float: " << s << std::endl;
 		std::cout << "double: " << s.substr(0, s.length() - 1) << std::endl;
