@@ -12,6 +12,14 @@
 
 #include "ScalarConverter.hpp"
 
+void	error(void)
+{
+	std::cout << "char: impossible conversion\n";
+	std::cout << "int: impossible conversion\n";
+        std::cout << "float: impossible conversion\n";
+        std::cout << "double: impossible conversion\n";
+}
+
 int	impossibleConversion(std::string s, std::string nan, std::string inf, std::string pInf, std::string nInf)
 {
 	static size_t size = s.length();
@@ -44,12 +52,27 @@ int	impossibleConversion(std::string s, std::string nan, std::string inf, std::s
 	return (0);
 }
 
-void	error(void)
+int	isSpecialFloat(std::string s)
 {
-	std::cout << "char: impossible conversion\n";
-	std::cout << "int: impossible conversion\n";
-        std::cout << "float: impossible conversion\n";
-        std::cout << "double: impossible conversion\n";
+	std::string nanf = "nanf";
+	std::string inff = "inff";
+	std::string pInff = "+inff";
+	std::string nInff = "-inff";
+
+	if (s == nanf || s == inff || s == pInff || s == nInff)
+	{
+		std::cout << "char: impossible" << std::endl;
+		std::cout << "int: impossible" << std::endl;
+		if (s == pInff)
+			std::cout << "float: " << s.erase(0, 1) << std::endl;
+		else
+			std::cout << "float: " << s << std::endl;
+		std::cout << "double: " << s.substr(0, s.length() - 1) << std::endl;
+		return (1);
+	}
+	if (impossibleConversion(s, nanf, inff, pInff, nInff))
+		return (error(), 1);
+	return (0);
 }
 
 int	isSpecialDouble(std::string s)
@@ -77,25 +100,3 @@ int	isSpecialDouble(std::string s)
 	return (0);
 }
 
-int	isSpecialFloat(std::string s)
-{
-	std::string nanf = "nanf";
-	std::string inff = "inff";
-	std::string pInff = "+inff";
-	std::string nInff = "-inff";
-
-	if (s == nanf || s == inff || s == pInff || s == nInff)
-	{
-		std::cout << "char: impossible" << std::endl;
-		std::cout << "int: impossible" << std::endl;
-		if (s == pInff)
-			std::cout << "float: " << s.erase(0, 1) << std::endl;
-		else
-			std::cout << "float: " << s << std::endl;
-		std::cout << "double: " << s.substr(0, s.length() - 1) << std::endl;
-		return (1);
-	}
-	if (impossibleConversion(s, nanf, inff, pInff, nInff))
-		return (error(), 1);
-	return (0);
-}
