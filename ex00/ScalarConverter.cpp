@@ -49,6 +49,20 @@ void	handleChar(std::string s)
 	std::cout.unsetf(std::ios::fixed);
 }
 
+void	handleInt(long nb)
+{
+	float	f;
+	double	d;
+
+	displayChar(nb);
+	std::cout << "int: " << nb << std::endl;
+	f = static_cast<float>(nb);
+	std::cout << std::fixed << std::setprecision(1) << "float: " << f << "f";
+	d = static_cast<double>(nb);
+	std::cout << "\ndouble: " << d << std::endl;
+	std::cout.unsetf(std::ios::fixed);
+}
+/*
 void	handleInt(std::string s)
 {
 	long	nb;
@@ -65,6 +79,7 @@ void	handleInt(std::string s)
 	std::cout << "\ndouble: " << d << std::endl;
 	std::cout.unsetf(std::ios::fixed);
 }
+
 
 void	handleDouble(std::string s)
 {
@@ -88,6 +103,22 @@ void	handleFloat(std::string s)
 	displayInt(flt);
 	displayOtherTypes("double", "float", flt);
 }
+*/
+
+
+void	handleDouble(double dbl)
+{
+	displayChar(dbl);
+	displayInt(dbl);
+	displayOtherTypes("float", "double" , dbl);
+}
+
+void	handleFloat(float flt)
+{
+	displayChar(flt);
+	displayInt(flt);
+	displayOtherTypes("double", "float", flt);
+}
 
 void	ScalarConverter::convert(std::string s)
 {
@@ -95,20 +126,10 @@ void	ScalarConverter::convert(std::string s)
 		return ;
 	if (getChar(s))
 		return ;
-	if (isInt(s))
-	{
-		handleInt(s);
+	if (getInt(s))
 		return ;
-	}
-	if (isDouble(s))
-	{
-		handleDouble(s);
+	if (getDouble(s))
 		return ;
-	}
-	if (isFloat(s))
-	{
-		handleFloat(s);
+	if (getFloat(s))
 		return ;
-	}
-
 }

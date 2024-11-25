@@ -21,7 +21,7 @@ int	getChar(std::string s)
 	return (0);
 }
 
-int	isInt(std::string s)
+int	getInt(std::string s)
 {
 	long	nb;
 	char	*endptr;
@@ -31,10 +31,10 @@ int	isInt(std::string s)
 		return (0);
 	if (nb < INT_MIN || nb > INT_MAX)
 		return (0);
-	return (1);
+	return (handleInt(nb), 1);
 }
 
-double	isDouble(std::string s)
+double	getDouble(std::string s)
 {
 	long double	nb;
 	char	*endptr;
@@ -44,10 +44,10 @@ double	isDouble(std::string s)
 		return (0);
 	if (nb < -DBL_MAX || nb > DBL_MAX)
 		return (0);
-	return (1);
+	return (handleDouble(nb), 1);
 }
 
-float	isFloat(std::string s)
+float	getFloat(std::string s)
 {
 	long double	nb;
 	char	*endptr;
@@ -57,5 +57,5 @@ float	isFloat(std::string s)
 		return (0);
 	if (nb < -FLT_MAX || nb > FLT_MAX)
 		return (0);
-	return (1);
+	return (handleFloat(nb), 1);
 }

@@ -7,7 +7,7 @@ GREEN := \e[32m
 RESET :=\e[0m
 
 SRCS = ScalarConverter.cpp ScalarConverterParsing.cpp \
-	ScalarConverterChecker.cpp ScalarConverterDisplay.cpp main.cpp
+	ScalarConverterGetters.cpp ScalarConverterDisplay.cpp main.cpp
 
 OBJS_PATH = objs/
 

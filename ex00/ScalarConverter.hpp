@@ -31,10 +31,13 @@ public:
 int	isSpecialDouble(std::string s);
 int	isSpecialFloat(std::string s);
 int	getChar(std::string s);
-int	isInt(std::string s);
-float	isFloat(std::string s);
-double	isDouble(std::string s);
+int	getInt(std::string s);
+float	getFloat(std::string s);
+double	getDouble(std::string s);
 void	handleChar(std::string s);
+void	handleInt(long nb);
+void	handleDouble(double dbl);
+void	handleFloat(float flt);
 void	displayChar(double val);
 void	displayInt(double val);
 void	displayOtherTypes(std::string s, std::string name, double val);
