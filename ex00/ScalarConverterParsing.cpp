@@ -6,7 +6,7 @@
 /*   By: eltouma <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/20 16:16:13 by eltouma           #+#    #+#             */
-/*   Updated: 2024/11/24 21:03:21 by eltouma          ###   ########.fr       */
+/*   Updated: 2024/11/26 13:53:24 by eltouma          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 void	error(void)
 {
-	std::cout << "char: impossible conversion\n";
-	std::cout << "int: impossible conversion\n";
-        std::cout << "float: impossible conversion\n";
-        std::cout << "double: impossible conversion\n";
+	std::cout << "char:\timpossible conversion" << std::endl;
+	std::cout << "int:\timpossible conversion" << std::endl;
+        std::cout << "float:\timpossible conversion" << std::endl;
+        std::cout << "double:\timpossible conversion" << std::endl;
 }
 
 int	impossibleConversion(std::string s, std::string nan, std::string inf, std::string pInf, std::string nInf)
@@ -61,13 +61,13 @@ int	isSpecialFloat(std::string s)
 
 	if (s == nanf || s == inff || s == pInff || s == nInff)
 	{
-		std::cout << "char: impossible" << std::endl;
-		std::cout << "int: impossible" << std::endl;
+		std::cout << "char:\timpossible" << std::endl;
+		std::cout << "int:\timpossible" << std::endl;
 		if (s == pInff)
-			std::cout << "float: " << s.erase(0, 1) << std::endl;
+			std::cout << "float:\t" << s.erase(0, 1) << std::endl;
 		else
-			std::cout << "float: " << s << std::endl;
-		std::cout << "double: " << s.substr(0, s.length() - 1) << std::endl;
+			std::cout << "float:\t" << s << std::endl;
+		std::cout << "double:\t" << s.substr(0, s.length() - 1) << std::endl;
 		return (1);
 	}
 	if (impossibleConversion(s, nanf, inff, pInff, nInff))
@@ -84,13 +84,13 @@ int	isSpecialDouble(std::string s)
 
 	if (s == nan || s == inf || s == pInf || s == nInf)
 	{
-		std::cout << "char: impossible" << std::endl;
-		std::cout << "int: impossible" << std::endl;
+		std::cout << "char:\timpossible" << std::endl;
+		std::cout << "int:\timpossible" << std::endl;
 		if (s == pInf)
-			std::cout << "float: " << s.erase(0, 1) << 'f' << std::endl;
+			std::cout << "float:\t" << s.erase(0, 1) << 'f' << std::endl;
 		else
-			std::cout << "float: " << s << 'f' << std::endl;
-		std::cout << "double: " << s << std::endl;
+			std::cout << "float:\t" << s << 'f' << std::endl;
+		std::cout << "double:\t" << s << std::endl;
 		return (1);
 	}
 	if (isSpecialFloat(s))

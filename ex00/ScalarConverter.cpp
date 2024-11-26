@@ -6,7 +6,7 @@
 /*   By: eltouma <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/20 16:16:13 by eltouma           #+#    #+#             */
-/*   Updated: 2024/11/24 23:10:52 by eltouma          ###   ########.fr       */
+/*   Updated: 2024/11/26 13:55:47 by eltouma          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,13 +39,13 @@ void	handleChar(std::string s)
 	double	dbl;
 
 	c = s.c_str()[0];
-	std::cout << "char: " << c << std::endl;
+	std::cout << "char:\t" << c << std::endl;
 	nb = static_cast<int>(c);
-	std::cout << "int: " << nb << std::endl;
+	std::cout << "int:\t" << nb << std::endl;
 	flt = static_cast<float>(c);
-	std::cout << std::fixed << std::setprecision(1) << "float: " << flt << "f";
+	std::cout << std::fixed << std::setprecision(1) << "float:\t" << flt << "f" << std::endl;
 	dbl = static_cast<double>(c);
-	std::cout << "\ndouble: " << dbl << std::endl;
+	std::cout << "double:\t" << dbl << std::endl;
 	std::cout.unsetf(std::ios::fixed);
 }
 
@@ -55,11 +55,11 @@ void	handleInt(long nb)
 	double	d;
 
 	displayChar(nb);
-	std::cout << "int: " << nb << std::endl;
+	std::cout << "int:\t" << nb << std::endl;
 	f = static_cast<float>(nb);
-	std::cout << std::fixed << std::setprecision(1) << "float: " << f << "f";
+	std::cout << std::fixed << std::setprecision(1) << "float:\t" << f << "f" << std::endl;
 	d = static_cast<double>(nb);
-	std::cout << "\ndouble: " << d << std::endl;
+	std::cout << "double:\t" << d << std::endl;
 	std::cout.unsetf(std::ios::fixed);
 }
 /*
