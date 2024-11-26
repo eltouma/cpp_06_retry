@@ -6,7 +6,7 @@ MAKEFLAGS += --no-print-directory
 GREEN := \e[32m
 RESET :=\e[0m
 
-SRCS = Base.cpp A.cpp B.cpp C.cpp main.cpp
+SRCS = Base.cpp main.cpp
 
 OBJS_PATH = objs/
 

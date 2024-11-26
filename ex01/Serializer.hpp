@@ -1,11 +1,13 @@
 #pragma once
 
 #include <iostream>
-#include <cstdint>
+#include <stdint.h>
 
 typedef struct s_Data
 {
-	int	ptr;
+	int	intPtr;
+	float	floatPtr;
+	std::string	strPtr;
 }	Data;
 
 class Serializer
